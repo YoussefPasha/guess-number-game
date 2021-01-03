@@ -13,9 +13,32 @@ import Input from "../components/Input";
 
 const StartGamesScreen = () => {
   const [enteredValue, setEnteredValue] = useState("");
+  const [confirmed, setConfirmed] = useState(false);
+  const [selectedNum, setSelectedNum] = useState();
   const numberInputHandler = (inputText) => {
     setEnteredValue(inputText.replace(/[^0-9]/g, ""));
   };
+  const resetInputHandler = () => {
+    setEnteredValue("");
+    setConfirmed(false);
+  };
+
+  const confirmInputHandler = () => {
+    const chosenNum = parseInt(enteredValue);
+    if (chosenNum === NaN || chosenNum <= 0 || chosenNum > 99) {
+      return;
+    }
+    setConfirmed(true);
+    setSelectedNum(chosenNum);
+    setEnteredValue("");
+  };
+
+  let confirmedOutput;
+
+  if (confirmed) {
+    confirmedOutput = <Text>Chosen Number: {selectedNum}</Text>;
+  }
+
   return (
     <TouchableWithoutFeedback
       onPress={() => {
@@ -40,19 +63,20 @@ const StartGamesScreen = () => {
             <View style={styles.button}>
               <Button
                 title="Reset"
-                onPress={() => {}}
+                onPress={resetInputHandler}
                 color={Colors.accentColor}
               />
             </View>
             <View style={styles.button}>
               <Button
                 title="Confirm"
-                onPress={() => {}}
+                onPress={confirmInputHandler}
                 color={Colors.primaryColor}
               />
             </View>
           </View>
         </Card>
+        {confirmedOutput}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -68,7 +92,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 10,
-    color: "#fff",
     fontWeight: "bold",
   },
   inputContainer: {
