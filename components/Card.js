@@ -3,7 +3,9 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 
 const Card = (props) => {
-  return <View style={{ ...styles.card , ...props.style }}>{props.children}</View>;
+  return (
+    <View style={{ ...styles.card, ...props.style }}>{props.children}</View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -16,6 +18,7 @@ const styles = StyleSheet.create({
     elevation: 8,
     padding: 20,
     borderRadius: 10,
+    fontWeight: "700",
   },
 });
 

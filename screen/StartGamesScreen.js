@@ -1,7 +1,8 @@
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
 import Card from "../components/Card";
 import Colors from "../constants/colors";
+import Input from "../components/Input";
 import React from "react";
 
 const StartGamesScreen = () => {
@@ -10,7 +11,14 @@ const StartGamesScreen = () => {
       <Text style={styles.title}>Start A New Game!</Text>
       <Card style={styles.inputContainer}>
         <Text>Select a Number!</Text>
-        <TextInput />
+        <Input
+          style={styles.input}
+          blurOnSubmit
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType="numeric"
+          maxLength={2}
+        />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
             <Button
@@ -42,6 +50,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     marginVertical: 10,
+    color: "#fff",
+    fontWeight: "bold",
   },
   inputContainer: {
     width: 300,
@@ -56,6 +66,10 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 100,
+  },
+  input: {
+    width: 50,
+    textAlign: "center",
   },
 });
 
