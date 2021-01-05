@@ -86,7 +86,7 @@ const StartGamesScreen = (props) => {
                 title="Reset"
                 type="clear"
                 onPress={resetInputHandler}
-                titleStyle={{ color: colors.accentColor }}
+                titleStyle={{ color: colors.accentColor, fontSize: 20 }}
               />
             </View>
             <View style={styles.button}>
@@ -94,7 +94,7 @@ const StartGamesScreen = (props) => {
                 title="Confirm"
                 type="clear"
                 onPress={confirmInputHandler}
-                titleStyle={{ color: colors.primaryColor }}
+                titleStyle={{ color: colors.primaryColor, fontSize: 20 }}
               />
             </View>
           </View>
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "open-sans",
     fontWeight: "900",
-    fontSize: 16,
+    fontSize: 19,
   },
 });
 
