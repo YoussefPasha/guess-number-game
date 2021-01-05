@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Button, StyleSheet, Text, View, Alert } from "react-native";
+import { Button, StyleSheet, View, Alert } from "react-native";
+import BodyText from "../components/BodyText";
 import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
 import colors from "../constants/colors";
@@ -55,7 +56,7 @@ const GameScreen = (props) => {
 
   return (
     <View style={styles.screen}>
-      <Text>Opponent's Guess</Text>
+      <BodyText style={styles.text}>Opponent's Guess</BodyText>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
         <Button
@@ -78,13 +79,19 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     alignItems: "center",
+    fontFamily: "open-sans",
   },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20,
     width: 300,
+    fontFamily: "open-sans",
     maxWidth: "80%",
+  },
+  text: {
+    fontWeight: "bold",
+    fontSize: 20,
   },
 });
 

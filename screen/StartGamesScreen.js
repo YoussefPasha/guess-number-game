@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Button,
   StyleSheet,
-  Text,
   View,
   TouchableWithoutFeedback,
   Keyboard,
@@ -12,6 +11,7 @@ import Card from "../components/Card";
 import Colors from "../constants/colors";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
+import BodyText from "../components/BodyText";
 
 const StartGamesScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
@@ -46,7 +46,7 @@ const StartGamesScreen = (props) => {
   if (confirmed) {
     confirmedOutput = (
       <Card style={styles.summaryContainer}>
-        <Text>You Selected</Text>
+        <BodyText style={styles.title}>You Selected</BodyText>
         <View>
           <NumberContainer>{selectedNum}</NumberContainer>
           <Button
@@ -65,9 +65,9 @@ const StartGamesScreen = (props) => {
       }}
     >
       <View style={styles.screen}>
-        <Text style={styles.title}>Start A New Game!</Text>
+        <BodyText style={styles.title}>Start A New Game!</BodyText>
         <Card style={styles.inputContainer}>
-          <Text>Select a Number!</Text>
+          <BodyText style={styles.text}>Select a Number!</BodyText>
           <Input
             style={styles.input}
             blurOnSubmit
@@ -107,10 +107,11 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     justifyContent: "flex-start",
+    fontFamily: "open-sans",
   },
   title: {
     fontSize: 20,
-    marginVertical: 10,
+    marginVertical: 30,
     fontFamily: "open-sans-bold",
   },
   inputContainer: {
@@ -126,14 +127,24 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 100,
+    fontFamily: "open-sans",
   },
   input: {
     width: 50,
     textAlign: "center",
+    fontSize: 16,
+    fontWeight: "900",
+    fontFamily: "open-sans",
   },
   summaryContainer: {
     marginTop: 20,
     alignItems: "center",
+    fontFamily: "open-sans",
+  },
+  text: {
+    fontFamily: "open-sans",
+    fontWeight: "900",
+    fontSize: 16,
   },
 });
 
