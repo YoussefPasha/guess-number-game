@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, Dimensions } from "react-native";
 import { Button } from "react-native-elements";
 import colors from "../constants/colors";
 import BodyText from "../components/BodyText";
@@ -19,7 +19,7 @@ const GameOver = (props) => {
       </BodyText>
       <BodyText style={styles.text}>
         to guess the number{" "}
-        <Text style={styles.colorfulText}>{props.realNumber}</Text>
+        <Text style={styles.colorfulText}>{props.realNumber}</Text>.
       </BodyText>
       <Button
         type="clear"
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: "bold",
-    fontSize: 19,
+    fontSize: 20,
     padding: 10,
     alignItems: "center",
   },
@@ -52,10 +52,10 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   image: {
-    width: 300,
-    height: 300,
-    borderRadius: 150,
-    marginVertical: 30,
+    width: Dimensions.get("window").width * 0.7,
+    height: Dimensions.get("window").width * 0.7,
+    borderRadius: (Dimensions.get("window").width * 0.7) / 2,
+    marginVertical: Dimensions.get("window").height / 30,
   },
   colorfulText: {
     color: colors.accentColor,
