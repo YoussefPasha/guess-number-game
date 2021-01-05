@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { StyleSheet, View, Alert, ScrollView } from "react-native";
+import { StyleSheet, View, Alert, ScrollView, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Button } from "react-native-elements";
 import BodyText from "../components/BodyText";
@@ -106,14 +106,14 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 20,
-    width: 300,
+    marginTop: Dimensions.get("window").height > 600 ? 20 : 5,
+    width: 400,
     fontFamily: "open-sans",
     maxWidth: "80%",
   },
   listContainer: {
     flex: 1,
-    width: "80%",
+    width: Dimensions.get("window").width > 400 ? "60%" : "80%",
   },
   list: {
     flexGrow: 1,
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "60%",
+    width: Dimensions.get("window").width > 400 ? "60%" : "80%",
   },
   text: {
     fontWeight: "bold",
