@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import {
-  Button,
   StyleSheet,
   View,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
 } from "react-native";
+import { Button } from "react-native-elements";
 import Card from "../components/Card";
-import Colors from "../constants/colors";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
 import BodyText from "../components/BodyText";
+import colors from "../constants/colors";
 
 const StartGamesScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
@@ -50,8 +50,10 @@ const StartGamesScreen = (props) => {
         <View>
           <NumberContainer>{selectedNum}</NumberContainer>
           <Button
+            type="clear"
             title="START GAME"
             onPress={() => props.onStartGame(selectedNum)}
+            titleStyle={{ color: colors.primaryColor }}
           />
         </View>
       </Card>
@@ -82,15 +84,17 @@ const StartGamesScreen = (props) => {
             <View style={styles.button}>
               <Button
                 title="Reset"
+                type="clear"
                 onPress={resetInputHandler}
-                color={Colors.accentColor}
+                titleStyle={{ color: colors.accentColor }}
               />
             </View>
             <View style={styles.button}>
               <Button
                 title="Confirm"
+                type="clear"
                 onPress={confirmInputHandler}
-                color={Colors.primaryColor}
+                titleStyle={{ color: colors.primaryColor }}
               />
             </View>
           </View>
