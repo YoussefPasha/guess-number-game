@@ -1,11 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
-import { StyleSheet, View, Alert, ScrollView, Text } from "react-native";
+import { StyleSheet, View, Alert, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Button } from "react-native-elements";
 import BodyText from "../components/BodyText";
 import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
 import colors from "../constants/colors";
+
+const renderListItem = (guess, index) => (
+  <View key={index} style={styles.listItem}>
+    <BodyText style={{ fontWeight: "600", fontSize: 17 }}>#{index}</BodyText>
+    <BodyText style={{ fontWeight: "600", fontSize: 17 }}>{guess}</BodyText>
+  </View>
+);
+
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -77,13 +85,13 @@ const GameScreen = (props) => {
           onPress={() => nextGuessHandler("greater")}
         />
       </Card>
-      <ScrollView>
-        {pastGuesses.map((guess, index) => (
-          <View key={index}>
-            <Text>{guess}</Text>
-          </View>
-        ))}
-      </ScrollView>
+      <View style={styles.list}>
+        <ScrollView>
+          {pastGuesses.map((guess, index) =>
+            renderListItem(guess, pastGuesses.length - index)
+          )}
+        </ScrollView>
+      </View>
     </View>
   );
 };
@@ -106,6 +114,19 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: "bold",
     fontSize: 20,
+  },
+  list: {
+    flex: 1,
+    width: "80%",
+  },
+  listItem: {
+    borderColor: "#ccc",
+    borderWidth: 1,
+    padding: 15,
+    marginVertical: 10,
+    backgroundColor: "white",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
 
