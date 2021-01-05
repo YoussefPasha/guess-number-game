@@ -1,3 +1,4 @@
+// There is no routers here just state Management and some conditions
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import * as Font from "expo-font";
